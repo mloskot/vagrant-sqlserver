@@ -8,7 +8,9 @@
 # The "2" in Vagrant.configure configures the configuration version.
 # Please don't change it unless you know what you're doing.
 Vagrant.configure(2) do |config|
-  config.vm.box = "ubuntu/xenial64"
+  # ubuntu/xenial64 is broken, does not provide vagrant user
+  # see https://bugs.launchpad.net/cloud-images/+bug/1569237
+  config.vm.box = "v0rtex/xenial64"
   config.vm.box_check_update = true
   config.vm.network :forwarded_port, host: 2433, guest: 1433
   config.vm.network "private_network", type: "dhcp"
