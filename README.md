@@ -8,10 +8,11 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 ## Features
 
 * Ubuntu 16.04 LTS
-* SQL Server 2017 (official packages by Microsoft)
+* [SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/) (official packages by Microsoft)
+* [SQL Server command-line tools on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 * Pre-configured with
   * Port forwarding from host `2433` to guest `1433` (default).
-  * User `sa` with password `Password12!`.
+  * User `sa` with password `Password123`.
   * Database `master`
 
 ## Requirements
@@ -26,7 +27,9 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 * Follow the [Usage](#usage) section.
 
 ## Usage
-  
+
+### Vagrant VM
+
 * `vagrant up` to create and boot the guest virtual machine.
 First time run, this may take quite a while as the base box image is downloaded
 and provisioned, packages installed.
@@ -39,3 +42,20 @@ You can get root access with `sudo` command.
 
 * `vagrant destroy` to wipe out the guest machine completely.
 You can re-create it and start over with `vagrant up`.
+
+### SQL Server
+
+Using [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility):
+
+* Connect to SQL Server instance from inside the guest VM
+
+```
+vagrant ssh
+sqlcmd -S localhost -U SA -P 'Password123'
+```
+
+* Connect to SQL Server instance from host
+
+```
+sqlcmd -S localhost:2433 -U SA -P 'Password123'
+```
