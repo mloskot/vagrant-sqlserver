@@ -8,16 +8,19 @@ export DEBIAN_FRONTEND="noninteractive"
 # Ensure hostname is recognised
 sudo sed -i "s/^127\.0\.0\.1.*/127.0.0.1 localhost $HOSTNAME/g" /etc/hosts
 # Install pre-requisites
-sudo apt-get update -y -q
+sudo apt-get -y -q update
 sudo apt-get -y -q install curl
 # Pre-installation
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server.list | sudo tee /etc/apt/sources.list.d/mssql-server.list
 curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /etc/apt/sources.list.d/msprod.list
-sudo apt-get update -y -q
+sudo apt-get -y -q update
 sudo apt-get -y -q install mssql-server unixodbc-dev
 ## Preserve env ACCEPT_EULA for sudo
 sudo -E bash -c 'apt-get -y -q install mssql-tools'
+# Clean up
+sudo apt-get -y -q autoremove
+sudo apt-get -y -q clean
 # Post-installation
 echo "SQLServer: Patching /opt/mssql/lib/mssql-conf/mssqlconfhelper.py file"
 echo "SQLServer: See https://github.com/Microsoft/mssql-docker/issues/111"
