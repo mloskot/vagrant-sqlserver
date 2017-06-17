@@ -17,6 +17,8 @@ Vagrant.configure(2) do |config|
     vb.cpus = 4
   end
 
+  config.vm.provision :file, source: 'mssqlconfhelper.py.patch', destination: 'mssqlconfhelper.py.patch'
+
   scripts = [ "bootstrap.sh" ]
   scripts.each { |script|
     config.vm.provision :shell, privileged: false, :path => "./" << script

@@ -1,0 +1,10 @@
+--- /opt/mssql/lib/mssql-conf/mssqlconfhelper.py	2017-06-17 19:10:03.511047973 +0200
++++ /opt/mssql/lib/mssql-conf/mssqlconfhelper.fixed.py	2017-06-17 19:09:52.829709973 +0200
+@@ -533,6 +533,7 @@
+     args = [invokeSqlservrScript] + list(args)
+     env = dict(os.environ)
+     env.update(kwargs)
++    env = {str(k): str(v) for k, v in env.items()}    
+     print("Configuring SQL Server...")
+     return subprocess.call(args, env=env)
+ 
