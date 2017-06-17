@@ -17,7 +17,7 @@ curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list | sudo tee /et
 sudo apt-get update -y -q
 sudo apt-get -y -q install mssql-server unixodbc-dev
 ## Preserve env ACCEPT_EULA for sudo
-sudo -E bash -c 'apt-get install mssql-tools'
+sudo -E bash -c 'apt-get -y -q install mssql-tools'
 # Post-installation
 echo "SQLServer: Patching /opt/mssql/lib/mssql-conf/mssqlconfhelper.py file"
 echo "SQLServer: See https://github.com/Microsoft/mssql-docker/issues/111"
@@ -35,7 +35,7 @@ sudo systemctl status mssql-server
 echo "SQLServer: adding /opt/mssql-tools/bin to PATH in ~/.bashrc"
 echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 echo "SQLServer: listing all databases"
-/opt/mssql-tools/bin/sqlcmd -S localhost -U sa "$SA_PASSWORD" -Q "SELECT name FROM sys.databases"
+/opt/mssql-tools/bin/sqlcmd -S localhost -U sa -P "$SA_PASSWORD" -Q "SELECT name FROM sys.databases"
 echo "SQLServer: DONE"
 echo "SQLServer: to connect to the database server from your host,"
 echo "           use the host IP"
