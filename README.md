@@ -57,5 +57,5 @@ sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT name FROM sys.databases;"
 * Connect to SQL Server instance from host
 
 ```
-sqlcmd -S localhost:2433 -U SA -P 'Password123'
+sqlcmd -S localhost,2433 -U SA -P 'Password123' -Q "SELECT name FROM sys.databases;"
 ```
