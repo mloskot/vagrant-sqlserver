@@ -11,8 +11,9 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 * [SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/) (official packages by Microsoft)
 * [SQL Server command-line tools on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 * Pre-configured with
+  * Vagrant default user: `vagrant` with password `vagrant`
   * Port forwarding from host `2433` to guest `1433` (default).
-  * User `sa` with password `Password123`.
+  * Database user `sa` with password `Password123`.
   * Database `master`
 
 ## Requirements
