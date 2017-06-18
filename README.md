@@ -7,7 +7,7 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 
 ## Features
 
-* Ubuntu 16.04 LTS
+* Ubuntu 16.10
 * [SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/) (official packages by Microsoft)
 * [SQL Server command-line tools on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 * Pre-configured with
@@ -51,7 +51,7 @@ Using [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility):
 
 ```
 vagrant ssh
-sqlcmd -S localhost -U SA -P 'Password123'
+sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT name FROM sys.databases;"
 ```
 
 * Connect to SQL Server instance from host

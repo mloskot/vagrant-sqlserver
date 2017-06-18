@@ -10,7 +10,7 @@
 Vagrant.configure(2) do |config|
   # ubuntu/xenial64 is broken, does not provide vagrant user
   # see https://bugs.launchpad.net/cloud-images/+bug/1569237
-  config.vm.box = "v0rtex/xenial64"
+  config.vm.box = "boxcutter/ubuntu1610"
   config.vm.box_check_update = true
   config.vm.network :forwarded_port, host: 2433, guest: 1433
   config.vm.network "private_network", type: "dhcp"
