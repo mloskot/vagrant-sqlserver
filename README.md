@@ -7,14 +7,16 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 
 ## Features
 
-* Ubuntu 16.10
+* Ubuntu 16.04
 * [SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/) (official packages by Microsoft)
 * [SQL Server command-line tools on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 * Pre-configured with
   * Vagrant default user: `vagrant` with password `vagrant`
   * Port forwarding from host `2433` to guest `1433` (default).
   * Database user `sa` with password `Password123`.
-  * Database `master`
+  * Database `master`.
+  * Set SQL Server edition to `Developer` with `MSSQL_PID="Developer`.
+  * Other of configuration [Environment variable](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-configure-environment-variables) set to default.
 
 ## Requirements
 
@@ -24,7 +26,7 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 ## Installation
 
 * `git clone` this repository or [download ZIP](https://github.com/mloskot/vagrant-sqlserver/archive/master.zip).
-* `cd vagrant-postgis`
+* `cd vagrant-sqlserver`
 * Follow the [Usage](#usage) section.
 
 ## Usage
@@ -52,6 +54,7 @@ Using [sqlcmd](https://docs.microsoft.com/en-us/sql/tools/sqlcmd-utility):
 
 ```
 vagrant ssh
+sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT @@version;"
 sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT name FROM sys.databases;"
 ```
 
