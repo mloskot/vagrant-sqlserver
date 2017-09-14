@@ -1,7 +1,9 @@
-# Vagrant SQL Server on Ubuntu Linux
+# Vagrant SQL Server 2017 on Ubuntu Linux
 
 [Vagrant](https://www.vagrantup.com/) configuration to provide users with
 virtual environment for hassle-free fun with [SQL Server 2017](https://www.microsoft.com/en-us/sql-server/sql-server-2017).
+
+Looking for SQL Server 2017 on Windows VM? Check https://github.com/mloskot/vagrant-sqlserver-windows
 
 Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_sql_server_express
 
