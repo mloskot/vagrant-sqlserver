@@ -39,9 +39,6 @@ echo 'export PATH="$PATH:/opt/mssql-tools/bin"' >> ~/.bashrc
 echo "SQLServer: Running sqlcmd -Q SELECT @@version"
 export PATH="$PATH:/opt/mssql-tools/bin"
 sqlcmd -S localhost -U SA -P 'Password123' -Q "SELECT @@version;"
-echo "SQLServer: DONE"
-echo "SQLServer: to connect to the database server from your host,"
-echo "           use the host IP"
-echo "Guest IP address:"
+echo "SQLServer: Guest IP address:"
 /sbin/ifconfig | grep 'inet addr:'
 echo "Bootstrap: DONE"
