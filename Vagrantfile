@@ -1,8 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-# Vagrant virtual environments for SQL Server 2017 on Ubuntu Linux
+Vagrant::DEFAULT_SERVER_URL.replace('https://vagrantcloud.com')
 
+# Vagrant virtual environments for SQL Server 2017 on Ubuntu Linux
 Vagrant.configure(2) do |config|
   # Do not use official Ubuntu box, it is broken in many ways
   # https://bugs.launchpad.net/cloud-images/+bug/1569237
