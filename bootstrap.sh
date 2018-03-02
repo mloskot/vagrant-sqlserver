@@ -14,7 +14,7 @@ sudo apt-get -y -q install curl
 # Pre-installation
 curl https://packages.microsoft.com/keys/microsoft.asc | sudo apt-key add -
 ## Repository Microsoft SQL Server
-sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server.list)"
+sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/16.04/mssql-server-2017.list)"
 ## Repository SQL Server command-line tools
 sudo add-apt-repository "$(curl https://packages.microsoft.com/config/ubuntu/16.04/prod.list)"
 sudo apt-get -y -q update
