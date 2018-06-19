@@ -10,11 +10,13 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 ## Features
 
 * Ubuntu 16.04
+* Hyper-V or [VirtualBox](https://www.virtualbox.org/)
 * [SQL Server 2017 on Linux](https://docs.microsoft.com/en-us/sql/linux/) (official packages by Microsoft)
 * [SQL Server command-line tools on Linux](https://docs.microsoft.com/en-us/sql/linux/sql-server-linux-setup-tools)
 * Pre-configured with
   * Vagrant default user: `vagrant` with password `vagrant`
   * Port forwarding from host `2433` to guest `1433` (default).
+    * *Hyper-V*: No port forwarding configured - default port used.
   * Database user `sa` with password `Password123`.
   * Database `master`.
   * Set SQL Server edition to `Developer` with `MSSQL_PID="Developer`.
@@ -22,7 +24,7 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 
 ## Requirements
 
-* [VirtualBox](https://www.virtualbox.org/) installed.
+* Hyper-V enabled or VirtualBox installed.
 * [Vagrant](https://www.vagrantup.com/downloads.html) installed.
 
 ## Installation
@@ -35,18 +37,22 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 
 ### Vagrant VM
 
-* `vagrant up` to create and boot the guest virtual machine.
-First time run, this may take quite a while as the base box image is downloaded
-and provisioned, packages installed.
+* `vagrant up` - create and boot the guest virtual machine.
 
-* `vagrant ssh` to get direct access to the guest shell via SSH.
+First time run, this may take quite a while as the base box image is downloaded and provisioned, packages installed.
+
+On Hyper-V, if Vagrant prompts for the Hyper-V Switch, choose `Default Switch` or `External Switch`.
+
+On Hyper-V, no port forwarding is enabled. Once the provisioning is done, IP address of the guest is printed. Use this IP to connect from host to the SQL Server using the default port.
+
+* `vagrant ssh` - access the guest shell via SSH.
+
 You'll be connected as the vagrant user.
 You can get root access with `sudo` command.
 
-* `vagrant halt` to shutdown the guest machine.
+* `vagrant halt` - shutdown the guest machine.
 
-* `vagrant destroy` to wipe out the guest machine completely.
-You can re-create it and start over with `vagrant up`.
+* `vagrant destroy` - wipe out the guest machine completely.
 
 ### SQL Server
 
