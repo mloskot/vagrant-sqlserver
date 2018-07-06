@@ -25,8 +25,9 @@ Vagrant.configure(2) do |config|
     # Windows (Build 16237+) comes with "Default Switch" to allow VMs to NAT host internet (any!) connection
     # https://blogs.technet.microsoft.com/virtualization/2017/07/26/hyper-v-virtual-machine-gallery-and-networking-improvements/
     # Apparently, this is an undocumented workaround to specify Hyper-V network in Vagrantfile.
-    # Otherwise, Vagrant will prompt listing Hyper-V Switch-es to select.
-    #override.vm.network "private_network", bridge: "Default Switch"
+    # NOTE: By default, try the "Default Switch"
+    #       Alternatively, comment this line and let Vagrant prompt you to select one from available Hyper-V Switch-es.
+    override.vm.network "private_network", bridge: "Default Switch"
     #override.vm.network "public_network", bridge: "External Switch"
   end
 

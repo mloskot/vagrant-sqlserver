@@ -41,7 +41,7 @@ Looking for SQL Server on Windows VM? Check https://github.com/msabramo/vagrant_
 
 First time run, this may take quite a while as the base box image is downloaded and provisioned, packages installed.
 
-On Hyper-V, if Vagrant prompts for the Hyper-V Switch, choose `Default Switch` or `External Switch`.
+On Hyper-V, by default, `Default Switch` is preferred. If you prefer to select different switch, see related comment in the `Vagrantfile`.
 
 On Hyper-V, no port forwarding is enabled. Once the provisioning is done, IP address of the guest is printed. Use this IP to connect from host to the SQL Server using the default port.
 
